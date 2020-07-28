@@ -1,0 +1,56 @@
+"Rakin Cycle Project"
+"Shane Riley"
+"Gabriel Vogel"
+"15C temp difference between working fluids through exchangers/condersers"
+ 
+ "State 1 - Leaving HEX and enetering L.P.2"
+
+"State 2 - Leaving L.P.2 and entering O.F.H."
+
+"State 3 - Leaving C.F.H. and entering Trap"
+
+"State 4 - Leaving Trap and entering O.F.H."
+
+"State 5 - Leaving O.F.H. and entering H.P."
+
+"State 6 - Leaving H.P. and entering C.F.H."
+
+"State 7 - Leaving C.F.H. and entering Boiler"
+P[7] = 25 [mPa]
+
+ 
+"State 8 - Leaving Boiler and Entering H.P. 1"
+P[8] = 25 [mPa]
+T[8] = 873.15 [K]
+ P$[8] =phase$(Water,T=T[8],P=P[8])
+h[8]=enthalpy(Water,T=T[8],P=P[8])
+s[8]=entropy(Water,T=T[8],P=P[8])
+sv[8] = volume(Water,T=T[8],P=P[8])
+ 
+"State 9 - Split from H.P.1. to H.P.2 and entering C.F.H."
+
+"State 10 - Leaving H.P.2 and entering Boiler"
+
+"State 11 - Leaving Boiler and entering L.P.1"
+
+"State 12 - Split from L.P.1 to L.P.2 and entering O.F.H"
+
+"State 13"
+x[13] = 0.90
+
+"State 14 - Leaving Condender and entering L.P.1"
+
+"State 15 - Leaving L.P.1 and entering HEX"
+
+"State 16 - Leaving HEX and entering L.P.3"
+
+"State 17 - Leaving L.P.3 and entering Condenser"
+
+
+
+
+
+
+
+
+
