@@ -1,0 +1,79 @@
+"Rankine Cycle Project"
+"Shane Riley"
+"Gabriel Vogel"
+
+A$ = 'Water'
+
+"s - ideal"
+"r - real"
+
+
+"CONSTRAINTS --------------------------------------------------------------------------"
+"Max HP turbine P = 25 [MPa] and TC = 600 [C]"
+"Quality in turbines cannot drop below 90%"
+"Reheat temp max TC = 600 [C]"
+"No vapor allowed in pumps"
+"HEX/condenser temperature differences must be at least 15 [C]"
+eff_turbine = .85 [-]
+eff_pump = .60 [-]
+Delta_hex = 15 [C]
+TC_ambient = 25 [C]
+
+
+"ISENTROPIC ANALYSIS -------------------------------------------------------------------"
+"We will simply handle our pressures and entropies exclusively, then find enthalpies"
+
+"The best system will utilize maximum temperature and pressure for the first pump"
+P_s[8] = 25000 [kPa]
+TC_s[8] = 600 [C]
+
+"The best system will utilize minimum temperature at the condenser outlet"
+TC_s[14] = TC_ambient + Delta_hex
+
+"The best system will utilize minimum temperature difference at the HEX"
+
+"The OFH shares states 2 4 5 12"
+P_s[2] = P_s[4]
+P_s[2] = P_s[5]
+P_s[2] = P_s[12]
+s_s[2] = s_s[4]
+s_s[2] = s_s[5]
+s_s[2] = s_s[12]
+
+"Pumps are isentropic at this point"
+s_s[14] = s_s[15]
+s_s[1] = s_s[2]
+s_s[5] = s_s[6]
+
+"Turbines are isentropic at this point"
+s_s[8] = s_s[9]
+s_s[9] = s_s[10]
+s_s[11] = s_s[12]
+s_s[12] = s_s[13]
+s_s[16] = s_s[17]
+
+"HEX is isobaric"
+P_s[13] = P_s[1]
+P_s[15] = P_s[16]
+
+"Boiler is isobaric"
+P_s[7] = P_s[8]
+P_s[10] = P_s[11]
+
+"Condenser is isobaric"
+P_s[14] = P_s[17]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
