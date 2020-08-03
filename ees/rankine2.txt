@@ -1,0 +1,72 @@
+"Rankine Cycle Project"
+"Shane Riley"
+"Gabriel Vogel"
+
+A$ = 'Water'
+
+"CONSTRAINTS --------------------------------------------------------------------------"
+"Max HP turbine P = 25 [MPa] and TC = 600 [C]"
+"Quality in turbines cannot drop below 90%"
+"Reheat temp max TC = 600 [C]"
+"No vapor allowed in pumps"
+"HEX/condenser temperature differences must be at least 15 [C]"
+eff_turbine = .85 [-]
+eff_pump = .60 [-]
+Delta_hex = 15 [C]
+TC_ambient = 25 [C]
+
+
+"BASIC MODEL --------------------------------------------------------------------------"
+
+"HEX isobaric"
+P[13] = P[1]
+P[15] = P[16]
+
+"Condenser isobaric"
+P[14] = P[17]
+
+"Boiler isobaric"
+P[7] = P[8]
+P[10] = P[11]
+
+"Trap isoenthalpic"
+h[3] = h[4]
+
+"Heat transfer across HEX"
+m_main * (h[13] - h[1]) = m_hex * (h[15] - h[16])
+
+"Heat transfer across CFH"
+h[7] - h[6] = y * (h[9] - h[3])
+
+"Heat transfer into boiler"
+Q_boiler = m_main * ((h[8] - h[7]) + (1-y)*(h[11] - h[10]))
+
+"Heat transfer from condenser"
+Q_condenser = m_hex * (h[17] - h[14])
+
+"Work from turbines"
+
+"Work into pumps"
+
+"APPLYING ASSUMPTIONS --------------------------------------------------------------------------"
+
+"Sat liquid at HP pump"
+
+"Sat liquid at LP pump 1"
+
+"Max superheat for HP turbine 1"
+
+"Max pressure for HP turbine 1"
+
+"Max superheat for LP turbine 1"
+
+"Minimum temp difference for condenser"
+
+"Minimum temp difference for HEX"
+
+"Minimum temp difference for CFH"
+
+"FINDING EFFICIENCY --------------------------------------------------------------------------"
+
+
+"PARAMETER SWEEP -----------------------------------------------------------------------------"
