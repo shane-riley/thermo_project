@@ -9,7 +9,9 @@ A$ = 'Water'
 "Get entropies as quickly as possible"
 "All works and heats are written to come out positive"
 
+
 "CONSTRAINTS --------------------------------------------------------------------------"
+
 "Max HP turbine P = 25 [MPa] and TC = 600 [C]"
 "Quality in turbines cannot drop below 90%"
 "Reheat temp max TC = 600 [C]"
@@ -95,6 +97,7 @@ P[5] = P[12]
 P[5] = P[2]
 P[5] = P[4]
 
+
 "APPLYING ASSUMPTIONS --------------------------------------------------------------------------"
 
 "Sat liquid at HP pump"
@@ -151,7 +154,16 @@ EFFICIENCY = (W_out - W_in) / Q_in
 
 "PARAMETER SWEEP -----------------------------------------------------------------------------"
 
+P[9] = 10000 [kPa]
+P[10] = 8000 [kPa]
 
 
 "SPINE OF ANALYSIS ---------------------------------------------------------------------------"
+
+"Gathering of various state information"
+s[8] = entropy(A$, P=P[8], T=TC[8])
+h[8] = enthalpy(A$, P=P[8], T=TC[8])
+s[14] = entropy(A$, x=x[14], T=TC[14])
+h[14] = enthalpy(A$, x=x[14], T=TC[14])
+
 
