@@ -32,6 +32,10 @@ P[10] = P[11]
 "Trap isoenthalpic"
 h[3] = h[4]
 
+"Entropy across turbines"
+
+"Entropy across pumps"
+
 "Heat transfer across HEX"
 m_main * (h[13] - h[1]) = m_hex * (h[15] - h[16])
 
@@ -48,23 +52,33 @@ Q_condenser = m_hex * (h[17] - h[14])
 
 "Work into pumps"
 
+"OFH Magic"
+
 "APPLYING ASSUMPTIONS --------------------------------------------------------------------------"
 
 "Sat liquid at HP pump"
+x[5] = 0 [-]
 
 "Sat liquid at LP pump 1"
+x[14] = 0 [-]
 
 "Max superheat for HP turbine 1"
+TC[8] = 600 [C]
 
 "Max pressure for HP turbine 1"
+P[8] = 25000 [kPa]
 
 "Max superheat for LP turbine 1"
+TC[11] = 600 [C]
 
 "Minimum temp difference for condenser"
+TC[14] = TC_ambient + Delta_hex
 
 "Minimum temp difference for HEX"
+T[1] = T[16] + Delta_hex
 
 "Minimum temp difference for CFH"
+T[7] = T[3] + Delta_hex
 
 "FINDING EFFICIENCY --------------------------------------------------------------------------"
 
