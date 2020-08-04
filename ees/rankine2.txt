@@ -3,6 +3,7 @@
 "Gabriel Vogel"
 
 A$ = 'Water'
+B$ = 'R134a'
 
 "_s denotes ideal state, for use in pumps and turbines"
 "Assume pressures are known when calculating state variables"
@@ -65,9 +66,9 @@ eff_turbine = (h[12] - h[13]) / (h[12] - h_ideal[13])
 s[13] = entropy(A$, h=h[13], x=x[13])
 
 s_ideal[17] = s[16]
-h_ideal[17] = enthalpy(A$, s=s_ideal[17], x=x[17])
+h_ideal[17] = enthalpy(B$, s=s_ideal[17], x=x[17])
 eff_turbine = (h[16] - h[17]) / (h[16] - h_ideal[17])
-s[17] = entropy(A$, h=h[17], x=x[17])
+s[17] = entropy(B$, h=h[17], x=x[17])
 
 "Entropy across pumps"
 s_ideal[6] = s[5]
@@ -81,9 +82,9 @@ eff_pump = (h[1] - h_ideal[2]) / (h[1] - h[2])
 s[2] = entropy(A$, h=h[2], P=P[2])
 
 s_ideal[15] = s[14]
-h_ideal[15] = enthalpy(A$, s=s_ideal[15], P=P[15])
+h_ideal[15] = enthalpy(B$, s=s_ideal[15], P=P[15])
 eff_pump = (h[14] - h_ideal[15]) / (h[14] - h[15])
-s[15] = entropy(A$, h=h[15], P=P[15])
+s[15] = entropy(B$, h=h[15], P=P[15])
 
 "Heat transfer across HEX"
 m_main * (h[13] - h[1]) = m_hex * (h[16] - h[15])
@@ -164,7 +165,7 @@ P[9] = 662 [kPa]
 x[10] = 0.9 [-]
 
 "Pressure end LP1 turbine"
-P[12] = 2000 [kPa]
+P[12] = 200 [kPa]
 
 "Quality end LP2 turbine"
 x[13] = 0.9 [-]
@@ -173,7 +174,7 @@ x[13] = 0.9 [-]
 x[17] = 0.9 [-]
 
 "Pressure entering Hex (refrigerant)"
-P[15] = 100 [kPa]
+P[15] = 50 [kPa]
 
 "y fraction"
 y = .15 [-]
@@ -235,15 +236,15 @@ T[12] = temperature(A$, P=P[12], s=s[12])
 P[13] = pressure(A$, x=x[13], s=s[13])
 T[13] = temperature(A$, x=x[13], s=s[13])
 
-s[14] = entropy(A$, x=x[14], T=T[14])
-h[14] = enthalpy(A$, x=x[14], T=T[14])
-P[14] = pressure(A$, x=x[14], T=T[14])
+s[14] = entropy(B$, x=x[14], T=T[14])
+h[14] = enthalpy(B$, x=x[14], T=T[14])
+P[14] = pressure(B$, x=x[14], T=T[14])
 
-x[15] = quality(A$, P=P[15], s=s[15])
-T[15] = temperature(A$, P=P[15], s=s[15])
+x[15] = quality(B$, P=P[15], s=s[15])
+T[15] = temperature(B$, P=P[15], s=s[15])
 
-x[16] = quality(A$, P=P[16], s=s[16])
-s[16] = entropy(A$, P=P[16], T=T[16])
-h[16] = enthalpy(A$, P=P[16], T=T[16])
+x[16] = quality(B$, P=P[16], s=s[16])
+s[16] = entropy(B$, P=P[16], T=T[16])
+h[16] = enthalpy(B$, P=P[16], T=T[16])
 
-T[17] = temperature(A$, P=P[17], s=s[17])
+T[17] = temperature(B$, P=P[17], s=s[17])
