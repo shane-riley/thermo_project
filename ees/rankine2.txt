@@ -1,18 +1,13 @@
 "Rankine Cycle Project"
 "Shane Riley"
 "Gabriel Vogel"
-
 A$ = 'Water'
 B$ = 'R134a'
-
 "_s denotes ideal state, for use in pumps and turbines"
 "Assume pressures are known when calculating state variables"
 "Get entropies as quickly as possible"
 "All works and heats are written to come out positive"
-
-
 "CONSTRAINTS --------------------------------------------------------------------------"
-
 "Max HP turbine P = 25 [MPa] and T = 600 [C]"
 "Quality in turbines cannot drop below 90%"
 "Reheat temp max T = 600 [C]"
@@ -22,229 +17,172 @@ eff_turbine = .85 [-]
 eff_pump = .60 [-]
 Delta_hex = 15 [C]
 T_ambient = 25 [C]
-
-
 "BASIC MODEL (THIS PART SHOULD NOT CHANGE) --------------------------------------------"
-
 "HEX isobaric"
 P[13] = P[1]
 P[15] = P[16]
-
 "Condenser isobaric"
 P[14] = P[17]
-
 "Boiler isobaric"
 P[7] = P[8]
 P[10] = P[11]
-
 "Trap isoenthalpic"
 h[3] = h[4]
-
 "CFH isobaric"
 P[3] = P[9]
 P[7] = P[6]
-
 "Entropy across turbines"
 s_ideal[9] = s[8]
 h_ideal[9] = enthalpy(A$, s=s_ideal[9], P=P[9])
 eff_turbine = (h[8] - h[9]) / (h[8] - h_ideal[9])
 s[9] = entropy(A$, h=h[9], P=P[9])
-
 s_ideal[10] = s[9]
 h_ideal[10] = enthalpy(A$, s=s_ideal[10], x=x[10])
 eff_turbine = (h[9] - h[10]) / (h[9] - h_ideal[10])
 s[10] = entropy(A$, h=h[10], x=x[10])
-
 s_ideal[12] = s[11]
 h_ideal[12] = enthalpy(A$, s=s_ideal[12], P=P[12])
 eff_turbine = (h[11] - h[12]) / (h[11] - h_ideal[12])
 s[12] = entropy(A$, h=h[12], P=P[12])
-
 s_ideal[13] = s[12]
 h_ideal[13] = enthalpy(A$, s=s_ideal[13], x=x[13])
 eff_turbine = (h[12] - h[13]) / (h[12] - h_ideal[13])
 s[13] = entropy(A$, h=h[13], x=x[13])
-
 s_ideal[17] = s[16]
 h_ideal[17] = enthalpy(B$, s=s_ideal[17], x=x[17])
 eff_turbine = (h[16] - h[17]) / (h[16] - h_ideal[17])
 s[17] = entropy(B$, h=h[17], x=x[17])
-
 "Entropy across pumps"
 s_ideal[6] = s[5]
 h_ideal[6] = enthalpy(A$, s=s_ideal[6], P=P[6])
 eff_pump = (h[5] - h_ideal[6]) / (h[5] - h[6])
 s[6] = entropy(A$, h=h[6], P=P[6])
-
 s_ideal[2] = s[1]
 h_ideal[2] = enthalpy(A$, s=s_ideal[2], P=P[2])
 eff_pump = (h[1] - h_ideal[2]) / (h[1] - h[2])
 s[2] = entropy(A$, h=h[2], P=P[2])
-
 s_ideal[15] = s[14]
 h_ideal[15] = enthalpy(B$, s=s_ideal[15], P=P[15])
 eff_pump = (h[14] - h_ideal[15]) / (h[14] - h[15])
 s[15] = entropy(B$, h=h[15], P=P[15])
-
 "Heat transfer across HEX"
 m_main * (h[13] - h[1]) = m_hex * (h[16] - h[15])
-
 "Heat transfer across CFH"
 h[7] - h[6] = y * (h[9] - h[3])
-
 "Equal pressures at OFH"
 "(I gave this assumption a lot more thought, and I think it is still true)"
 P[5] = P[12]
 P[5] = P[2]
 P[5] = P[4]
-
-
 "APPLYING ASSUMPTIONS --------------------------------------------------------------------------"
-
 "Sat liquid at HP pump"
 x[5] = 0 [-]
-
 "Sat liquid at LP pump 1"
 x[14] = 0 [-]
-
 "Sat liquid at LP pump 2"
 x[1] = 0 [-]
-
 "Max superheat for HP turbine 1"
 T[8] = 600 [C]
-
 "Max pressure for HP turbine 1"
 P[8] = 25000 [kPa]
-
 "Max superheat for LP turbine 1"
 T[11] = 600 [C]
-
 "Minimum temp difference for condenser"
 T[14] = T_ambient + Delta_hex
-
 "Minimum temp difference for HEX"
 T[1] = T[16] + Delta_hex
-
 "Minimum temp difference for CFH"
 T[7] = T[3] + Delta_hex
-
-
 "FINDING EFFICIENCY --------------------------------------------------------------------------"
-
 "Heat transfer into boiler"
 Q_in = m_main * ((h[8] - h[7]) + (1-y)*(h[11] - h[10]))
-
 "Heat transfer from condenser"
 Q_out = m_hex * (h[17] - h[14])
-
 "Work from turbines"
 W_turbine_HP1 = m_main * (h[8] - h[9])
 W_turbine_HP2 = m_main * (1-y) * (h[9] - h[10])
 W_turbine_LP1 = m_main * (1-y) * (h[11] - h[12])
 W_turbine_LP2 = m_main * (1-y-z) * (h[12] - h[13])
 W_turbine_LP3 = m_hex * (h[16] - h[17])
-
 "Work into pumps"
 W_pump_HP = m_main * (h[6] - h[5])
 W_pump_LP1 = m_hex * (h[15] - h[14])
 W_pump_LP2 = m_main * (h[2] - h[1])
-
 "Totals"
 W_in = W_pump_HP + W_pump_LP1 + W_pump_LP2
 W_out = W_turbine_HP1 + W_turbine_HP2 + W_turbine_LP1 + W_turbine_LP2 + W_turbine_LP3
 DELTAE = W_in - W_out + Q_in - Q_out
 EFFICIENCY = (W_out - W_in) / Q_in
-
-
 "INPUT PARAMETERS -----------------------------------------------------------------------------"
-
 "Pressure end HP1 turbine"
-P[9] = 662 [kPa]
-
+P[9] = 880 [kPa]
 "Quality end HP2 turbine"
 x[10] = 0.9 [-]
-
 "Pressure end LP1 turbine"
-P[12] = 200 [kPa]
-
+P[12] = 225 [kPa]
 "Quality end LP2 turbine"
 x[13] = 0.9 [-]
-
 "Quality end LP3 turbine"
 x[17] = 0.9 [-]
-
 "Pressure entering Hex (refrigerant)"
-P[15] = 50 [kPa]
-
+P[15] = 2000 [kPa]
 "y fraction"
 y = .15 [-]
-
 "z fraction"
 z = .15 [-]
-
 "Temperature leaving CFH"
 T[7] = 300 [C]
-
 "Set arbitrary mass flow"
 m_main = 1 [kg/s]
-
-
 "THERMOPHYSICAL STATES -----------------------------------------------------------------------"
-
 s[1] = entropy(A$, P=P[1], x=x[1])
 h[1] = enthalpy(A$, P=P[1], x=x[1])
 T[1] = temperature(A$, P=P[1], x=x[1])
-
 x[2] = quality(A$, P=P[2], s=s[2])
 T[2] = temperature(A$, P=P[2], s=s[2])
-
 s[3] = entropy(A$, P=P[3], T=T[3])
 h[3] = enthalpy(A$, P=P[3], T=T[3])
 x[3] = quality(A$, P=P[3], s=s[2])
-
 s[4] = entropy(A$, P=P[4], h=h[4])
 x[4] = quality(A$, P=P[4], s=s[4])
 T[4] = temperature(A$, P=P[4], s=s[4])
-
 s[5] = entropy(A$, P=P[5], x=x[5])
 h[5] = enthalpy(A$, P=P[5], x=x[5])
 T[5] = temperature(A$, P=P[5], x=x[5])
-
 x[6] = quality(A$, P=P[6], s=s[6])
 T[6] = temperature(A$, P=P[6], s=s[6])
-
 s[7] = entropy(A$, P=P[7], T=T[7])
 x[7] = quality(A$, P=P[7], s=s[7])
-
 s[8] = entropy(A$, P=P[8], T=T[8])
 h[8] = enthalpy(A$, P=P[8], T=T[8])
 x[8] = quality(A$, P=P[8], s=s[8])
-
 x[9] = quality(A$, P=P[9], s=s[9])
 T[9] = temperature(A$, P=P[9], s=s[9])
-
 P[10] = pressure(A$, x=x[10], s=s[10])
 T[10] = temperature(A$, P=P[10], s=s[10])
-
 s[11] = entropy(A$, P=P[11], T=T[11])
 h[11] = enthalpy(A$, P=P[11], T=T[11])
 x[11] = quality(A$, P=P[11], s=s[11])
-
 x[12] = quality(A$, P=P[12], s=s[12])
 T[12] = temperature(A$, P=P[12], s=s[12])
-
 P[13] = pressure(A$, x=x[13], s=s[13])
 T[13] = temperature(A$, x=x[13], s=s[13])
-
 s[14] = entropy(B$, x=x[14], T=T[14])
 h[14] = enthalpy(B$, x=x[14], T=T[14])
 P[14] = pressure(B$, x=x[14], T=T[14])
-
 x[15] = quality(B$, P=P[15], s=s[15])
 T[15] = temperature(B$, P=P[15], s=s[15])
-
 x[16] = quality(B$, P=P[16], s=s[16])
 s[16] = entropy(B$, P=P[16], T=T[16])
 h[16] = enthalpy(B$, P=P[16], T=T[16])
-
 T[17] = temperature(B$, P=P[17], s=s[17])
+ 
+"Checking State -----------------------------------"
+P$[9] = phase$(A$,s=s[9],h=h[9])
+P$[10] = phase$(A$,s=s[10],h=h[10])
+P$[11] = phase$(A$,s=s[11],h=h[11])
+P$[12] = phase$(A$,s=s[12],h=h[12])
+P$[13] = phase$(A$,s=s[13],h=h[13])
+P$[15] = phase$(B$,s=s[15],h=h[15])
+P$[16] = phase$(B$,s=s[16],h=h[16])
+P$[17] = phase$(B$,s=s[17],h=h[17])
