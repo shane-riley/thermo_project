@@ -12,15 +12,15 @@ A$ = 'Water'
 
 "CONSTRAINTS --------------------------------------------------------------------------"
 
-"Max HP turbine P = 25 [MPa] and TC = 600 [C]"
+"Max HP turbine P = 25 [MPa] and T = 600 [C]"
 "Quality in turbines cannot drop below 90%"
-"Reheat temp max TC = 600 [C]"
+"Reheat temp max T = 600 [C]"
 "No vapor allowed in pumps"
 "HEX/condenser temperature differences must be at least 15 [C]"
 eff_turbine = .85 [-]
 eff_pump = .60 [-]
 Delta_hex = 15 [C]
-TC_ambient = 25 [C]
+T_ambient = 25 [C]
 
 
 "BASIC MODEL (THIS PART SHOULD NOT CHANGE) --------------------------------------------"
@@ -44,49 +44,49 @@ P[3] = P[9]
 P[7] = P[6]
 
 "Entropy across turbines"
-s_s[9] = s[8]
-h_s[9] = enthalpy(A$, s=s_s[9], P=P[9])
-eff_turbine = (h[8] - h[9]) / (h[8] - h_s[9])
+s_ideal[9] = s[8]
+h_ideal[9] = enthalpy(A$, s=s_ideal[9], P=P[9])
+eff_turbine = (h[8] - h[9]) / (h[8] - h_ideal[9])
 s[9] = entropy(A$, h=h[9], P=P[9])
 
-s_s[10] = s[9]
-h_s[10] = enthalpy(A$, s=s_s[10], P=P[10])
-eff_turbine = (h[9] - h[10]) / (h[9] - h_s[10])
+s_ideal[10] = s[9]
+h_ideal[10] = enthalpy(A$, s=s_ideal[10], P=P[10])
+eff_turbine = (h[9] - h[10]) / (h[9] - h_ideal[10])
 s[10] = entropy(A$, h=h[10], P=P[10])
 
-s_s[12] = s[11]
-h_s[12] = enthalpy(A$, s=s_s[12], P=P[12])
-eff_turbine = (h[11] - h[12]) / (h[11] - h_s[12])
+s_ideal[12] = s[11]
+h_ideal[12] = enthalpy(A$, s=s_ideal[12], P=P[12])
+eff_turbine = (h[11] - h[12]) / (h[11] - h_ideal[12])
 s[12] = entropy(A$, h=h[12], P=P[12])
 
-s_s[13] = s[12]
-h_s[13] = enthalpy(A$, s=s_s[13], P=P[13])
-eff_turbine = (h[12] - h[13]) / (h[12] - h_s[13])
-s[13] = entropy(A$, h=h[13], P=P[13])
+s_ideal[13] = s[12]
+h_ideal[13] = enthalpy(A$, s=s_ideal[13], x=x[13])
+eff_turbine = (h[12] - h[13]) / (h[12] - h_ideal[13])
+s[13] = entropy(A$, h=h[13], x=x[13])
 
-s_s[17] = s[16]
-h_s[17] = enthalpy(A$, s=s_s[17], P=P[17])
-eff_turbine = (h[16] - h[17]) / (h[16] - h_s[17])
-s[17] = entropy(A$, h=h[17], P=P[17])
+s_ideal[17] = s[16]
+h_ideal[17] = enthalpy(A$, s=s_ideal[17], x=x[17])
+eff_turbine = (h[16] - h[17]) / (h[16] - h_ideal[17])
+s[17] = entropy(A$, h=h[17], x=x[17])
 
 "Entropy across pumps"
-s_s[6] = s[5]
-h_s[6] = enthalpy(A$, s=s_s[6], P=P[6])
-eff_pump = (h[5] - h_s[6]) / (h[5] - h[6])
+s_ideal[6] = s[5]
+h_ideal[6] = enthalpy(A$, s=s_ideal[6], P=P[6])
+eff_pump = (h[5] - h_ideal[6]) / (h[5] - h[6])
 s[6] = entropy(A$, h=h[6], P=P[6])
 
-s_s[2] = s[1]
-h_s[2] = enthalpy(A$, s=s_s[2], P=P[2])
-eff_pump = (h[1] - h_s[2]) / (h[1] - h[2])
+s_ideal[2] = s[1]
+h_ideal[2] = enthalpy(A$, s=s_ideal[2], P=P[2])
+eff_pump = (h[1] - h_ideal[2]) / (h[1] - h[2])
 s[2] = entropy(A$, h=h[2], P=P[2])
 
-s_s[15] = s[14]
-h_s[15] = enthalpy(A$, s=s_s[15], P=P[15])
-eff_pump = (h[14] - h_s[15]) / (h[14] - h[15])
+s_ideal[15] = s[14]
+h_ideal[15] = enthalpy(A$, s=s_ideal[15], P=P[15])
+eff_pump = (h[14] - h_ideal[15]) / (h[14] - h[15])
 s[15] = entropy(A$, h=h[15], P=P[15])
 
 "Heat transfer across HEX"
-m_main * (h[13] - h[1]) = m_hex * (h[15] - h[16])
+m_main * (h[13] - h[1]) = m_hex * (h[16] - h[15])
 
 "Heat transfer across CFH"
 h[7] - h[6] = y * (h[9] - h[3])
@@ -106,17 +106,20 @@ x[5] = 0 [-]
 "Sat liquid at LP pump 1"
 x[14] = 0 [-]
 
+"Sat liquid at LP pump 2"
+x[1] = 0 [-]
+
 "Max superheat for HP turbine 1"
-TC[8] = 600 [C]
+T[8] = 600 [C]
 
 "Max pressure for HP turbine 1"
 P[8] = 25000 [kPa]
 
 "Max superheat for LP turbine 1"
-TC[11] = 600 [C]
+T[11] = 600 [C]
 
 "Minimum temp difference for condenser"
-TC[14] = TC_ambient + Delta_hex
+T[14] = T_ambient + Delta_hex
 
 "Minimum temp difference for HEX"
 T[1] = T[16] + Delta_hex
@@ -152,18 +155,68 @@ DELTAE = W_in - W_out + Q_in - Q_out
 EFFICIENCY = (W_out - W_in) / Q_in
 
 
-"PARAMETER SWEEP -----------------------------------------------------------------------------"
+"INPUT PARAMETERS -----------------------------------------------------------------------------"
 
-P[9] = 10000 [kPa]
+"Pressure end HP1 turbine"
+P[9] = 15000 [kPa]
+
+"Pressure end HP2 turbine"
 P[10] = 8000 [kPa]
 
+"Pressure end LP1 turbine"
+P[12] = 2000 [kPa]
 
-"SPINE OF ANALYSIS ---------------------------------------------------------------------------"
+"Quality end LP2 turbine"
+x[13] = 0.9 [-]
 
-"Gathering of various state information"
-s[8] = entropy(A$, P=P[8], T=TC[8])
-h[8] = enthalpy(A$, P=P[8], T=TC[8])
-s[14] = entropy(A$, x=x[14], T=TC[14])
-h[14] = enthalpy(A$, x=x[14], T=TC[14])
+"Quality end LP3 turbine"
+x[17] = 0.9 [-]
+
+"Pressure entering Hex (refrigerant)"
+P[15] = 100 [kPa]
+
+"y fraction"
+y = .15 [-]
+
+"z fraction"
+z = .15 [-]
+
+"Temperature leaving CFH"
+T[7] = 300 [C]
+
+"Set arbitrary mass flow"
+m_main = 1 [kg/s]
 
 
+"THERMOPHYSICAL STATES -----------------------------------------------------------------------"
+
+s[1] = entropy(A$, P=P[1], x=x[1])
+h[1] = enthalpy(A$, P=P[1], x=x[1])
+T[1] = temperature(A$, P=P[1], x=x[1])
+
+s[3] = entropy(A$, P=P[3], T=T[3])
+h[3] = enthalpy(A$, P=P[3], T=T[3])
+
+s[4] = entropy(A$, P=P[4], h=h[4])
+
+s[7] = entropy(A$, P=P[7], T=T[7])
+
+s[5] = entropy(A$, P=P[5], x=x[5])
+h[5] = enthalpy(A$, P=P[5], x=x[5])
+T[5] = temperature(A$, P=P[5], x=x[5])
+
+s[8] = entropy(A$, P=P[8], T=T[8])
+h[8] = enthalpy(A$, P=P[8], T=T[8])
+
+s[11] = entropy(A$, P=P[11], T=T[11])
+h[11] = enthalpy(A$, P=P[11], T=T[11])
+
+P[13] = pressure(A$, x=x[13], s=s[13])
+T[13] = temperature(A$, x=x[13], s=s[13])
+
+s[14] = entropy(A$, x=x[14], T=T[14])
+h[14] = enthalpy(A$, x=x[14], T=T[14])
+P[14] = pressure(A$, x=x[14], T=T[14])
+
+s[16] = entropy(A$, P=P[16], T=T[16])
+h[16] = enthalpy(A$, P=P[16], T=T[16])
