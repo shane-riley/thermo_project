@@ -50,9 +50,9 @@ eff_turbine = (h[8] - h[9]) / (h[8] - h_ideal[9])
 s[9] = entropy(A$, h=h[9], P=P[9])
 
 s_ideal[10] = s[9]
-h_ideal[10] = enthalpy(A$, s=s_ideal[10], P=P[10])
+h_ideal[10] = enthalpy(A$, s=s_ideal[10], x=x[10])
 eff_turbine = (h[9] - h[10]) / (h[9] - h_ideal[10])
-s[10] = entropy(A$, h=h[10], P=P[10])
+s[10] = entropy(A$, h=h[10], x=x[10])
 
 s_ideal[12] = s[11]
 h_ideal[12] = enthalpy(A$, s=s_ideal[12], P=P[12])
@@ -160,8 +160,8 @@ EFFICIENCY = (W_out - W_in) / Q_in
 "Pressure end HP1 turbine"
 P[9] = 662 [kPa]
 
-"Pressure end HP2 turbine"
-P[10] = 8000 [kPa]
+"Quality end HP2 turbine"
+x[10] = 0.9 [-]
 
 "Pressure end LP1 turbine"
 P[12] = 2000 [kPa]
@@ -222,7 +222,7 @@ x[8] = quality(A$, P=P[8], s=s[8])
 x[9] = quality(A$, P=P[9], s=s[9])
 T[9] = temperature(A$, P=P[9], s=s[9])
 
-x[10] = quality(A$, P=P[10], s=s[10])
+P[10] = pressure(A$, x=x[10], s=s[10])
 T[10] = temperature(A$, P=P[10], s=s[10])
 
 s[11] = entropy(A$, P=P[11], T=T[11])
