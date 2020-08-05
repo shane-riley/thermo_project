@@ -69,9 +69,9 @@ s[13] = entropy(A$, h=h[13], P=P[13])
 "REFRIGERANT TURBINE WHAT THE HELL"
 
 s_ideal[17] = s[16]
-h_ideal[17] = enthalpy(A$, s=s_ideal[17], P=P[17])
+h_ideal[17] = enthalpy(B$, s=s_ideal[17], P=P[17])
 eff_turbine = (h[16] - h[17]) / (h[16] - h_ideal[17])
-s[17] = entropy(A$, h=h[17], P=P[17])
+s[17] = entropy(B$, h=h[17], P=P[17])
 
 "Entropy across pumps"
 s_ideal[6] = s[5]
@@ -154,9 +154,8 @@ W_in = W_pump_HP + W_pump_LP1 + W_pump_LP2
 Q_out = m_hex * (h[17] - h[14])
 
 "DELTAE and efficiency"
-W_net = W_out - W_in
-DELTAE = W_net + Q_in - Q_out
-EFFICIENCY = W_net / Q_in
+DELTAE = W_out - W_in + Q_out - Q_in
+EFFICIENCY = (W_out - W_in) / Q_in
 
 "DELTAe for refrigerant"
 DELTAE_hex = Q_hex - Q_out + W_turbine_LP3 - W_pump_LP1
@@ -164,22 +163,24 @@ DELTAE_hex = Q_hex - Q_out + W_turbine_LP3 - W_pump_LP1
 "INPUT PARAMETERS -----------------------------------------------------------------------------"
 
 "CFH pressure"
-P[9] = 2000 [kPa]
+P[9] = 880 [kPa]
 
 "Reheat pressure"
 P[10] = 800 [kPa]
 
 "OFH pressure"
-P[12] = 200 [kPa]
+P[12] = 350 [kPa]
 
 "Ending pressure"
-P[13] = 50 [kPa]
+P[13] = 35 [kPa]
 
 "Pressure entering HEX"
-P[15] = 2000 [kPa]
+P[15] = 1300 [kPa]
 
 "CFH ending temp"
 T[3] = 150 [C]
+
+z = 0.05 [-]
 
 "THERMOPHYSICAL STATES -----------------------------------------------------------------------"
 
