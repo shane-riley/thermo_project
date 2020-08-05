@@ -492,7 +492,7 @@ FUNCTION {format.journal.vol.num.date}
       { journal
         volume empty$
 	      'skip$
-          { ", \textbf{ " * volume * "}" * }     % asme wants volume in \bf
+          { ", {\bf " * volume * "}" * }     % asme wants volume in \bf
         if$
         number empty$
           { month empty$
