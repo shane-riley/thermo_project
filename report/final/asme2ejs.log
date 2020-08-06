@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  5 AUG 2020 11:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  6 AUG 2020 14:58
 entering extended mode
 **./asme2ejs.tex
 (asme2ejs.tex
@@ -112,12 +112,80 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.st
+y"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.st
+y"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
+"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen137
+))
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty
+"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen138
+)
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty
+"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count179
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count180
+\leftroot@=\count181
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count182
+\DOTSCASE@=\count183
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen139
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count184
+\c@MaxMatrixCols=\count185
+\dotsspace@=\muskip16
+\c@parentequation=\count186
+\dspbrk@lvl=\count187
+\tag@help=\toks17
+\row@=\count188
+\column@=\count189
+\maxfields@=\count190
+\andhelp@=\toks18
+\eqnshift@=\dimen140
+\alignsep@=\dimen141
+\tagshift@=\dimen142
+\tagwidth@=\dimen143
+\totwidth@=\dimen144
+\lineht@=\dimen145
+\@envbody=\toks19
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
 ("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
 d-pdfmode.def"
 File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count179
-\l__pdf_internal_box=\box47
-) (asme2ejs.aux)
+\l__kernel_color_stack_int=\count191
+\l__pdf_internal_box=\box49
+) (asme2ejs.aux
+
+LaTeX Warning: Label `Isobaric device' multiply defined.
+
+)
 \openout1 = `asme2ejs.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -136,32 +204,65 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
 LaTeX Font Info:    ... okay on input line 45.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
 5.
-
-("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
+ ("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-\big@size=\dimen137
-
 ("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count180
-\scratchdimen=\dimen138
-\scratchbox=\box48
-\nofMPsegments=\count181
-\nofMParguments=\count182
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count183
-\MPscratchDim=\dimen139
-\MPnumerator=\count184
-\makeMPintoPDFobject=\count185
-\everyMPtoPDFconversion=\toks17
+\scratchcounter=\count192
+\scratchdimen=\dimen146
+\scratchbox=\box50
+\nofMPsegments=\count193
+\nofMParguments=\count194
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count195
+\MPscratchDim=\dimen147
+\MPnumerator=\count196
+\makeMPintoPDFobject=\count197
+\everyMPtoPDFconversion=\toks22
 )
 ("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
 pdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\infwar
+err.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/grfext\grfext.sty"
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvdefinekeys\kvd
+efinekeys.sty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvoption
+s.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.
+sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kvsetk
+eys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexc
+mds.sty"
+Package: pdftexcmds 2020-06-04 v0.32 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line
  47.
@@ -202,128 +303,130 @@ Underfull \hbox (badness 10000) detected at line 47
 []
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 7
-9.
+[1
+
+{C:/Users/shane/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (8.40189pt too wide) in paragraph at lines 207--209
+\OT1/ptm/m/n/10 mal sys-tem will use the mim-i-mum al-low-able tem-per-a-ture d
+if-fer-ences for heat ex-changer/closed feed-wa-ter heater/condenser
+ []
+
+[3]
+<figure/FMANU_MD_05_1107_11.jpg, id=20, 240.9pt x 364.36125pt>
+File: figure/FMANU_MD_05_1107_11.jpg Graphic file (type jpg)
+<use figure/FMANU_MD_05_1107_11.jpg>
+Package pdftex.def Info: figure/FMANU_MD_05_1107_11.jpg  used on input line 289
+.
+(pdftex.def)             Requested size: 241.38153pt x 365.09978pt.
+ [4]
+<figure/FMANU_MD_05_1272_5.jpg, id=24, 227.8914pt x 191.7564pt>
+File: figure/FMANU_MD_05_1272_5.jpg Graphic file (type jpg)
+<use figure/FMANU_MD_05_1272_5.jpg>
+Package pdftex.def Info: figure/FMANU_MD_05_1272_5.jpg  used on input line 311.
+
+(pdftex.def)             Requested size: 241.38153pt x 203.10571pt.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
+20.
+
+("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1ptm.fd"
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+<figure/FMANU_MD_04_1274_13.jpg, id=25, 225.4824pt x 168.63pt>
+File: figure/FMANU_MD_04_1274_13.jpg Graphic file (type jpg)
+<use figure/FMANU_MD_04_1274_13.jpg>
+Package pdftex.def Info: figure/FMANU_MD_04_1274_13.jpg  used on input line 328
+.
+(pdftex.def)             Requested size: 234.87749pt x 175.66438pt.
+[5 <./figure/FMANU_MD_05_1107_11.jpg>]
+File: figure/FMANU_MD_04_1274_13.jpg Graphic file (type jpg)
+<use figure/FMANU_MD_04_1274_13.jpg>
+Package pdftex.def Info: figure/FMANU_MD_04_1274_13.jpg  used on input line 337
+.
+(pdftex.def)             Requested size: 495.04993pt x 370.24864pt.
+
+Underfull \vbox (badness 1762) has occurred while \output is active []
+
+ [6 <./figure/FMANU_MD_05_1272_5.jpg> <./figure/FMANU_MD_04_1274_13.jpg>]
+
+LaTeX Warning: Citation `asmemanual' on page 7 undefined on input line 388.
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
+90.
 ("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
-LaTeX Warning: Citation `asmemanual' on page 1 undefined on input line 79.
+LaTeX Warning: Citation `latex' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `latex' on page 1 undefined on input line 79.
-
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
-3.
-("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1ptm.fd"
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [1
-
-{C:/Users/shane/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 119.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 119.
- [2]
-<figure/FMANU_MD_05_1107_11.jpg, id=17, 240.9pt x 364.36125pt>
-File: figure/FMANU_MD_05_1107_11.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_05_1107_11.jpg>
-Package pdftex.def Info: figure/FMANU_MD_05_1107_11.jpg  used on input line 166
-.
-(pdftex.def)             Requested size: 241.38153pt x 365.09978pt.
-
-[3 <./figure/FMANU_MD_05_1107_11.jpg>]
-<figure/FMANU_MD_05_1272_5.jpg, id=21, 227.8914pt x 191.7564pt>
-File: figure/FMANU_MD_05_1272_5.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_05_1272_5.jpg>
-Package pdftex.def Info: figure/FMANU_MD_05_1272_5.jpg  used on input line 188.
-
-(pdftex.def)             Requested size: 241.38153pt x 203.10571pt.
-<figure/FMANU_MD_04_1274_13.jpg, id=22, 225.4824pt x 168.63pt>
-File: figure/FMANU_MD_04_1274_13.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_04_1274_13.jpg>
-Package pdftex.def Info: figure/FMANU_MD_04_1274_13.jpg  used on input line 205
-.
-(pdftex.def)             Requested size: 234.87749pt x 175.66438pt.
-File: figure/FMANU_MD_04_1274_13.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_04_1274_13.jpg>
-Package pdftex.def Info: figure/FMANU_MD_04_1274_13.jpg  used on input line 214
-.
-(pdftex.def)             Requested size: 495.04993pt x 370.24864pt.
-
-Underfull \vbox (badness 4429) has occurred while \output is active []
-
- [4 <./figure/FMANU_MD_05_1272_5.jpg> <./figure/FMANU_MD_04_1274_13.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-
-LaTeX Warning: Citation `goosens' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `goosens' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `art' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `art' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `blt' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `blt' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `ibk' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `ibk' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `icn' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `icn' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `ips' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `ips' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `mts' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `mts' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `mis' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `mis' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `pro' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `pro' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `pts' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `pts' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `trt' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `trt' on page 7 undefined on input line 392.
 
 
-LaTeX Warning: Citation `upd' on page 6 undefined on input line 269.
+LaTeX Warning: Citation `upd' on page 7 undefined on input line 392.
 
-[6]
+[7]
 No file asme2ejs.bbl.
-[7] (asme2ejs.aux)
+[8] (asme2ejs.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 1630 strings out of 480797
- 24469 string characters out of 2895575
- 259859 words of memory out of 3000000
- 17611 multiletter control sequences out of 15000+200000
- 570026 words of font info for 92 fonts, out of 3000000 for 9000
+ 2650 strings out of 480797
+ 39329 string characters out of 2895575
+ 280685 words of memory out of 3000000
+ 18591 multiletter control sequences out of 15000+200000
+ 562764 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,11n,27p,1036b,290s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,10n,29p,1036b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cmextra/cmex9.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/shane/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/shane/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/shane/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/shane/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/sha
-ne/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users
-/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/U
-sers/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-
-Output written on asme2ejs.pdf (7 pages, 408937 bytes).
+cm/cmmi10.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/shane/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/shane/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/shane/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/shane/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/shane/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sha
+ne/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users
+/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on asme2ejs.pdf (8 pages, 415197 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
+ 73 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
