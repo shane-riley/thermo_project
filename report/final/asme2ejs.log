@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  6 AUG 2020 14:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  6 AUG 2020 20:22
 entering extended mode
 **./asme2ejs.tex
 (asme2ejs.tex
@@ -183,7 +183,16 @@ File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
 \l__pdf_internal_box=\box49
 ) (asme2ejs.aux
 
+LaTeX Warning: Label `figure_ASME' multiply defined.
+
+
 LaTeX Warning: Label `Isobaric device' multiply defined.
+
+
+LaTeX Warning: Label `figure_ASME' multiply defined.
+
+
+LaTeX Warning: Label `figure_ASME' multiply defined.
 
 )
 \openout1 = `asme2ejs.aux'.
@@ -306,127 +315,35 @@ Underfull \hbox (badness 10000) detected at line 47
 [1
 
 {C:/Users/shane/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Overfull \hbox (8.40189pt too wide) in paragraph at lines 207--209
-\OT1/ptm/m/n/10 mal sys-tem will use the mim-i-mum al-low-able tem-per-a-ture d
-if-fer-ences for heat ex-changer/closed feed-wa-ter heater/condenser
- []
-
-[3]
-<figure/FMANU_MD_05_1107_11.jpg, id=20, 240.9pt x 364.36125pt>
-File: figure/FMANU_MD_05_1107_11.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_05_1107_11.jpg>
-Package pdftex.def Info: figure/FMANU_MD_05_1107_11.jpg  used on input line 289
-.
-(pdftex.def)             Requested size: 241.38153pt x 365.09978pt.
- [4]
-<figure/FMANU_MD_05_1272_5.jpg, id=24, 227.8914pt x 191.7564pt>
-File: figure/FMANU_MD_05_1272_5.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_05_1272_5.jpg>
-Package pdftex.def Info: figure/FMANU_MD_05_1272_5.jpg  used on input line 311.
-
-(pdftex.def)             Requested size: 241.38153pt x 203.10571pt.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
-20.
-
-("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1ptm.fd"
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-<figure/FMANU_MD_04_1274_13.jpg, id=25, 225.4824pt x 168.63pt>
-File: figure/FMANU_MD_04_1274_13.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_04_1274_13.jpg>
-Package pdftex.def Info: figure/FMANU_MD_04_1274_13.jpg  used on input line 328
-.
-(pdftex.def)             Requested size: 234.87749pt x 175.66438pt.
-[5 <./figure/FMANU_MD_05_1107_11.jpg>]
-File: figure/FMANU_MD_04_1274_13.jpg Graphic file (type jpg)
-<use figure/FMANU_MD_04_1274_13.jpg>
-Package pdftex.def Info: figure/FMANU_MD_04_1274_13.jpg  used on input line 337
-.
-(pdftex.def)             Requested size: 495.04993pt x 370.24864pt.
-
-Underfull \vbox (badness 1762) has occurred while \output is active []
-
- [6 <./figure/FMANU_MD_05_1272_5.jpg> <./figure/FMANU_MD_04_1274_13.jpg>]
-
-LaTeX Warning: Citation `asmemanual' on page 7 undefined on input line 388.
-
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
-90.
-("C:\Users\shane\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1pcr.fd"
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-
-LaTeX Warning: Citation `latex' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `goosens' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `art' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `blt' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `ibk' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `icn' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `ips' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `mts' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `mis' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `pro' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `pts' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `trt' on page 7 undefined on input line 392.
-
-
-LaTeX Warning: Citation `upd' on page 7 undefined on input line 392.
-
-[7]
+[3] [4]
 No file asme2ejs.bbl.
-[8] (asme2ejs.aux)
-
-LaTeX Warning: There were undefined references.
-
+[5] (asme2ejs.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2650 strings out of 480797
- 39329 string characters out of 2895575
- 280685 words of memory out of 3000000
- 18591 multiletter control sequences out of 15000+200000
- 562764 words of font info for 75 fonts, out of 3000000 for 9000
+ 2546 strings out of 480797
+ 37604 string characters out of 2895575
+ 279646 words of memory out of 3000000
+ 18503 multiletter control sequences out of 15000+200000
+ 559197 words of font info for 68 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,10n,29p,1036b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,11n,29p,1022b,246s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmmi10.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmr10.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/shane/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/shane/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/shane/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/shane/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/shane/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sha
-ne/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users
-/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on asme2ejs.pdf (8 pages, 415197 bytes).
+iKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/shane/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/shane/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/shane/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/shane/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/shane
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on asme2ejs.pdf (5 pages, 108882 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
+ 55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
