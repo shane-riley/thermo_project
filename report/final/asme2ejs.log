@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  7 AUG 2020 00:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  7 AUG 2020 02:05
 entering extended mode
 **./asme2ejs.tex
 (asme2ejs.tex
@@ -183,13 +183,7 @@ File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
 \l__pdf_internal_box=\box49
 ) (asme2ejs.aux
 
-LaTeX Warning: Label `figure_ASME' multiply defined.
-
-
 LaTeX Warning: Label `Isobaric device' multiply defined.
-
-
-LaTeX Warning: Label `figure_ASME' multiply defined.
 
 
 LaTeX Warning: Label `table_ASME' multiply defined.
@@ -314,22 +308,39 @@ Underfull \hbox (badness 10000) detected at line 47
 
 [1
 
-{C:/Users/shane/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-[3] [4] [5]
+{C:/Users/shane/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<figure/labels.jpg, id=11, 378.66469pt x 429.10312pt>
+File: figure/labels.jpg Graphic file (type jpg)
+<use figure/labels.jpg>
+Package pdftex.def Info: figure/labels.jpg  used on input line 85.
+(pdftex.def)             Requested size: 325.215pt x 368.53696pt.
+ [2 <./figure/labels.jpg>]
+<figure/carnot.png, id=16, 598.235pt x 461.725pt>
+File: figure/carnot.png Graphic file (type png)
+<use figure/carnot.png>
+Package pdftex.def Info: figure/carnot.png  used on input line 145.
+(pdftex.def)             Requested size: 325.215pt x 251.00458pt.
+ [3] [4 <./figure/carnot.png>] [5]
+<figure/ts.jpg, id=29, 903.375pt x 602.25pt>
+File: figure/ts.jpg Graphic file (type jpg)
+<use figure/ts.jpg>
+Package pdftex.def Info: figure/ts.jpg  used on input line 347.
+(pdftex.def)             Requested size: 325.215pt x 216.80983pt.
+ [6]
 No file asme2ejs.bbl.
-[6] (asme2ejs.aux)
+[7 <./figure/ts.jpg>] (asme2ejs.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2552 strings out of 480797
- 37666 string characters out of 2895575
- 284661 words of memory out of 3000000
- 18506 multiletter control sequences out of 15000+200000
+ 2575 strings out of 480797
+ 38018 string characters out of 2895575
+ 281677 words of memory out of 3000000
+ 18523 multiletter control sequences out of 15000+200000
  561529 words of font info for 72 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,11n,29p,1022b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,11n,29p,899b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmmi10.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
@@ -341,9 +352,9 @@ cal/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/shane/AppData
 /Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/shane/App
 Data/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/shane
 /AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on asme2ejs.pdf (6 pages, 113140 bytes).
+Output written on asme2ejs.pdf (7 pages, 388529 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
