@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  6 AUG 2020 20:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.12)  7 AUG 2020 00:28
 entering extended mode
 **./asme2ejs.tex
 (asme2ejs.tex
@@ -192,7 +192,7 @@ LaTeX Warning: Label `Isobaric device' multiply defined.
 LaTeX Warning: Label `figure_ASME' multiply defined.
 
 
-LaTeX Warning: Label `figure_ASME' multiply defined.
+LaTeX Warning: Label `table_ASME' multiply defined.
 
 )
 \openout1 = `asme2ejs.aux'.
@@ -315,21 +315,21 @@ Underfull \hbox (badness 10000) detected at line 47
 [1
 
 {C:/Users/shane/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-[3] [4]
+[3] [4] [5]
 No file asme2ejs.bbl.
-[5] (asme2ejs.aux)
+[6] (asme2ejs.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2546 strings out of 480797
- 37604 string characters out of 2895575
- 279646 words of memory out of 3000000
- 18503 multiletter control sequences out of 15000+200000
- 559197 words of font info for 68 fonts, out of 3000000 for 9000
+ 2552 strings out of 480797
+ 37666 string characters out of 2895575
+ 284661 words of memory out of 3000000
+ 18506 multiletter control sequences out of 15000+200000
+ 561529 words of font info for 72 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,11n,29p,1022b,246s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,11n,29p,1022b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmmi10.pfb><C:/Users/shane/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
@@ -341,9 +341,9 @@ cal/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/shane/AppData
 /Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/shane/App
 Data/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/shane
 /AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on asme2ejs.pdf (5 pages, 108882 bytes).
+Output written on asme2ejs.pdf (6 pages, 113140 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

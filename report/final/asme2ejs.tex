@@ -15,8 +15,8 @@
 %  
 %% The default is oneside, onecolumn, 10pt, final
 
-\title{Thermodynamic Analysis of a Regenerative \\
-Reheat Rankine Cycle with a Secondary Loop}
+\title{Optimization of a Regenerative \\
+Reheat Rankine Cycle with an Organic Rankine Cycle}
 
 %%% first author
 \author{Shane Riley
@@ -50,7 +50,7 @@ Reheat Rankine Cycle with a Secondary Loop}
 \begin{abstract}
 {\it 
 The Rankine Cycle is fundamental to the operation of utility-scale power plants. While the simplest configuration of the cycle employs only four devices (pump, turbine, boiler, condenser), such a cycle leaves additional efficiency on the table. 
-Greater efficiency can be achieved by adding reheat processes, feedwater heaters, and an Organic Rankine Cycle with a lower boiling point fluid. These additions increase the cost and complexity of the cycle, but also increase the efficiency. At the utility-scale, the latter is vastly more important. To analyze and optimize a system with a closed feedwater heater (C.F.H.), open feedwater heater (O.F.H.), reheat, and Organic Rankine Cycle (ORC), a script is presented based upon thermodynamic laws, project constraints, and guiding assumptions. This script is run using the Engineering Equation Solver (EES) and a number of input parameters, and outputs a measure of overall thermal efficiency. Using the model as a guide, an optimal set of state variables is reached for maximum thermal efficiency.
+Greater efficiency can be achieved by adding reheat processes, feedwater heaters, and an Organic Rankine Cycle with a lower boiling point working fluid. These additions increase the cost and complexity of the cycle, but also increase the efficiency. At the utility-scale, the latter is vastly more important. To analyze and optimize a system with a closed feedwater heater (C.F.H.), a open feedwater heater (O.F.H.), a reheat process, and an Organic Rankine Cycle (ORC), a script is presented based upon thermodynamic laws, project constraints, and guiding assumptions. This script is run using the Engineering Equation Solver (EES) and a number of input parameters, and outputs a measure of overall thermal efficiency. Using the model as a guide, an optimal set of input parameters is reached for maximum thermal efficiency.
 }
 \end{abstract}
 
@@ -58,15 +58,15 @@ Greater efficiency can be achieved by adding reheat processes, feedwater heaters
 \begin{nomenclature}
 \entry{$P$}{Pressure of fluid [kPa].}
 \entry{$T$}{Temperature of fluid [C].}
-\entry{$x$}{Quality of fluid [-]. When superheated or subcooled, the quality is defined as 100 [-] or -100 [-], respectively.}
+\entry{$x$}{Quality of fluid [-]. When superheated or subcooled, the quality is defined as 100 [-] or -100 [-], respectively, as per the EES standard.}
 \entry{$s$}{Real specific entropy of fluid  [kJ/kg-K].}
 \entry{$s_{ideal}$}{Ideal specific entropy of fluid  [kJ/kg-K].}
 \entry{$h$}{Real specific enthalpy of fluid [kJ/kg].}
 \entry{$h_{ideal}$}{Ideal specific enthalpy of fluid [kJ/kg].}
 \entry{$m_{main}$}{Mass flow of main line in steam system [kg/s].}
-\entry{$m_{hex}$}{Mass flow of refrigerant loop [kg/s].}
-\entry{$y$}{Mass flow fraction released to the CFH [-].}
-\entry{$z$}{Mass flow fraction released to the OFH [-].}
+\entry{$m_{hex}$}{Mass flow of ORC [kg/s].}
+\entry{$y$}{Mass flow fraction released to the C.F.H. [-].}
+\entry{$z$}{Mass flow fraction released to the O.F.H. [-].}
 \entry{$\eta_{th}$}{Overall thermal efficiency [-].}
 \entry{$\eta_{pump}$}{Isentropic efficiency of pumps [-].}
 \entry{$\eta_{turbine}$}{Isentropic efficiency of turbines [-].}
@@ -94,43 +94,41 @@ Greater efficiency can be achieved by adding reheat processes, feedwater heaters
 \label{figure_ASME} 
 \end{figure}
 
-Modern society owes itself to the study of thermodynamics, and specifically the Rankine Cycle. Standard of living depends on products made at high-scale and low-cost, and this type of production relies on cheap and accessible energy. The easiest way that humanity has found to produce energy in bulk is by using thermodynamic cycles. As such, it seems no coincidence that most innovations in thermodynamics occurred right before and during the Second Industrial Revolution [1]. The quantities of energy necessary to move humanity forward depended on an understanding of thermodynamics. While other forms of utility-scale power generation have evolved today (Photovoltaics, hydro, wind, etc.), the vast majority of power generation is still done using thermal power plants and thermodynamic cycles [1].
+Modern society owes itself to the study of thermodynamics, and specifically the Rankine Cycle. Standard of living depends on products made at high-scale and low-cost, and this type of production relies on cheap and accessible energy. The easiest way that humanity has found to produce energy in bulk is by using thermodynamic cycles. As such, it seems no coincidence that most innovations in thermodynamics occurred right before and during the Second Industrial Revolution [1]. The quantities of energy necessary to move humanity forward depended on an understanding of thermodynamic processes and cycles. While other forms of utility-scale power generation have evolved today that use other methods of producing electricity (photovoltaics, hydro-power, wind-power, etc.), the vast majority of power generation is still done using thermal power plants and thermodynamic cycles [1].
 
-In order to generate work in a thermal power plant, thermodynamic cycles utilize a temperature differential created by a fuel (coal, gas, or radioactive material in a reactor). To maximize the work per heat generated (thermal efficiency), careful consideration must be taken in the selection of the cycle. The Carnot Theorem provides guidance by predicting an absolute maximum of thermal efficiency [1].
+In order to generate work in a thermal power plant, thermodynamic cycles utilize a temperature differential created by a fuel (coal, gas, or radioactive material in a reactor). To maximize the work generated per heat in (thermal efficiency), careful consideration must be taken in the selection of the cycle. The Carnot Theorem provides guidance by predicting an absolute maximum of thermal efficiency for the temperature differential in question [1].
 
-The Rankine Cycle, named after Scottish engineer William Rankine, uses the phase change of a working fluid to create isobaric processes during heating and cooling [1]. That, combined with roughly isentropic processes at the pump and turbine, makes the T-S diagram of the Rankine Cycle closely mimic that of the Carnot Cycle, resulting in decent thermal efficiency. While this is the case, there are ways to increase the efficiency further. The analysis presented uses three methods: A secondary loop, feedwater heaters, and a reheat process. Using all of these additional methods at once vastly increases the complexity of the cycle, requiring higher levels of analysis in order to maximize thermal efficiency.
-
-% Figure of carnot and rankine cycles
+The Rankine Cycle, named after Scottish engineer William Rankine, uses the phase change of a working fluid to create isobaric processes during heating and cooling [1]. That, combined with roughly isentropic processes at the pump and turbine, makes the T-S diagram of the Rankine Cycle closely mimic that of the Carnot Cycle, resulting in decent thermal efficiency. While this is the case, there are ways to increase the efficiency further. The analysis presented uses three methods: An Organic Rankine Cycle, two feedwater heaters, and a reheat process. Using all of these additional methods at once vastly increases the complexity of the cycle, necessitating the use of iterative analysis in order to maximize thermal efficiency.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
 
-To perform an efficiency optimization of state variables and mass flow rates, the Engineering Equation Solver (EES) serves as a useful tool. EES provides simple lookups on state information, and can solve a system easily given enough relations are supplied. Additionally, EES allows for modulating inputs for optimization using parameter tables.
+To perform an efficiency optimization of state variables, the Engineering Equation Solver (EES) serves as a useful tool. EES provides simple lookups for state information regarding both working fluids, and can solve a system of equations easily and out of order, as long as sufficient relations are provided. Additionally, EES allows for modulating inputs for optimization using parametric tables.
 
 \subsection{Constraints}
 
-As per the project description, the following constraints must be followed:
+As per the project description, the following constraints will be followed:
 
 \begin{enumerate}
 \item
-The secondary loop will use R-134a
+The primary loop will use water,
 \item
-Maximum turbine inlet P = 25 [MPa] and T = 600 [C]
+The secondary loop will use R-134a,
 \item
-Minimum turbine quality of 90\%
+Maximum turbine inlet conditions are P = 25 [MPa] and T = 600 [C],
 \item
-Maximum reheat temperature of T = 600 [C]
+Minimum turbine quality is 90\%,
 \item
-Pumps cannot pump any vapor
+Maximum reheat temperature is T = 600 [C],
 \item
-Ambient temperature of T = 25 [C]
+Pumps cannot pump any vapor (fluid must be quality of 0 [-] or subcooled),
 \item
-Minimum temperature differential for condenser, heat exchanger, and closed feedwater heater of 15 [C]
+Ambient temperature is T = 25 [C],
 \item
-Isentropic efficiencies of pumps and turbines as 60\% and 85\%, respectively
+Minimum temperature differential for heat transfer devices is 15 [C],
+\item
+Isentropic efficiencies of pumps and turbines are 60\% and 85\%, respectively.
 \end{enumerate}
-
-Additionally, the first and second laws of thermodynamics should not be violated by our analysis. The only processes that decrease entropy must be ones that remove heat from the working fluid, and the sum of heats and works in and out should be equal to 0. These two laws provide useful assertions for the analysis.
 
 \subsection{Thermodynamic Assumptions}
 
@@ -145,7 +143,7 @@ Condensers, boilers, heat exchangers and feedwater heaters are isobaric devices.
 \item
 The steam trap is an isenthalpic device.
 \item
-The closed feedwater heater, boiler, and heat exchanger lose no heat to the environment.
+The C.F.H, O.F.H, and HEX are adiabatic.
 \end{enumerate}
 
 \subsection{Calculating Heats and Works}
@@ -163,9 +161,9 @@ The closed feedwater heater, boiler, and heat exchanger lose no heat to the envi
 \label{figure_ASME} 
 \end{figure}
 
-The power moving into or out of the working fluid can be measured as a difference in specific enthalpies multiplied by the mass flow rate of the fluid and the fraction of the total mass flow (dictated by y, z, and their complements). This is reasonable given the assumptions made in the analysis. Whether the power constitutes work or heat depends on the device being analyzed.
+The power moving into or out of a working fluid can be measured as a difference in specific enthalpies multiplied by the mass flow rate of the fluid and the fraction of the total mass flow (dictated by y, z, and their complements). This is reasonable given the assumptions made in the analysis. Whether the power constitutes work or heat depends on the device being analyzed.
 
-In the EES script, power direction is handled such that all values of Q and W come out as positive, given basic assumptions about which way energy should be flowing. That way, a negative sign in any work or heat quantity raises alarm. The proper signage is handled when calculating net work and thermal efficiency. Examples are shown below:
+In the EES script, power direction is handled such that all values of Q and W come out as positive, given basic assumptions about which way energy should be flowing. That way, a negative sign in any work or heat quantity raises alarm. The proper signage is handled later when calculating net work and thermal efficiency. Examples are shown below:
 
 \begin{equation}
 W_{turbine,LP2} = m_{main} * (1-y-z) * (h[12] - h[13])
@@ -203,7 +201,7 @@ P[14] = P[17]
 \label{Isobaric device}
 \end{equation}
 
-For the open feedwater heater, there are four states with equal pressure.
+For the O.F.H, there are four states with equal pressure (3 relations).
 
 \subsection{Isenthalpic Trap}
 
@@ -237,7 +235,7 @@ Using two state variables at the inlet and pressure at the outlet, it is possibl
 \label{Turbine entropy}
 \end{equation}
 
-\subsection{Known-Goods for Optimization}
+\subsection{Known-Goods for Analysis}
 
 With fundamental relations established, additional parameters can be set based on thermodynamic intuition:
 
@@ -245,24 +243,24 @@ With fundamental relations established, additional parameters can be set based o
 \item
 Heat flow across a temperature differential produces entropy that scales with the size of the differential. As such, an optimal system will use the minimum allowable temperature differences for HEX/C.F.H./condenser operation. The outlet temperatures are set with a 15 [C] difference (the condenser is set to 15 [C] above ambient).
 \item
-It is wasteful to cool working fluid beyond the saturation line. As such, the qualities for all three pump inlets are set to 0 [-].
+It is wasteful to cool a working fluid beyond the saturation line. As such, the qualities for all three pump inlets are set to 0 [-].
 \item
-Using the maximum temperature differential for the entire system is optimal (raises Carnot efficiency). As such, the first turbine inlet state is set to maximum allowable temperature and pressure (superheat).
+Using the maximum temperature differential for the entire system is optimal (raises Carnot efficiency). As such, the first turbine inlet state is set to the maximum allowable temperature and pressure (superheat).
 \item
-The maximum reheat temperature is optimal for the main loop, as it drops the heat removal (hex) pressure.
+The maximum reheat temperature is optimal for the main loop, as it drops the heat removal (HEX) pressure.
 \item
-In order to maximize the heat addition pre-boiler, the y-fraction should dump as much heat through the C.F.H. as possible. The y-fraction quality after the C.F.H. is set to 0 [-].
+In order to maximize heat recovery, the y-fraction should transfer as much heat through the C.F.H. as possible. The y-fraction quality after the C.F.H. is set to 0 [-] to achieve this.
 \item
-For the ORC, it is ideal to not superheat the refrigerant vapor. The pre-turbine refrigerant quality is set to 1 [-].
+For the ORC, it is ideal to create no superheat in the refrigerant vapor. The pre-turbine refrigerant quality is set to 1 [-].
 \item
-Mass flow rate of the main loop will simply scale heats and works evenly, resulting in the same overall efficiency. For simplicity, the mass flow for the water is set to 1 [kg/s].
+The mass flow rate of the main loop will simply scale heats and works evenly, resulting in the same overall efficiency. For simplicity, the mass flow for water is set to 1 [kg/s].
 \end{enumerate}
 
 \subsection{Optimization of Remaining Parameters}
 
-From this point, there remain 4 input parameters to determine a solution (in addition to many thermodynamic state variable function calls).
+After all guiding assumptions and known-goods are placed into the model, there remain 4 degrees of freedom. These are satisfied by specifying 4 state variables as inputs.
 
-In the final analysis, the following variables are chosen for optimization:
+In the final analysis, the following variables are chosen as input parameters for optimization:
 
 \begin{enumerate}
 \item
@@ -277,22 +275,87 @@ Pressure at HEX (water-side) (P[13])
 
 The first two parameters are optimized in tandem while the latter two are set to 200 and 100 [kPa], respectively. Once an ideal set of the first two parameters is reached, the O.F.H. pressure and then the HEX pressure are optimized.
 
+\subsection{Extraneous Solutions}
+
+While the model can produce accurate solutions for state variables, it can also create extraneous solutions with certain combinations of inputs. To remove these solutions from consideration, the following assertions are made:
+
+\begin{enumerate}
+\item
+Both mass-flow fractions are positive.
+\item
+State entropy only decreases across devices that release heat across the control surface of the fluid (Second Law).
+\item
+The sum of energies into and out of the system is small compared to the heat in (should be zero, barring rounding errors).
+\item
+All works and heats from the EES script are positive (defined to be such by signing enthalpy differences accordingly).
+\end{enumerate}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion}
 
+By following the process of parameter optimization, the four input pressures are established and all other state variables are calculated. Using the state enthalpies, flow-rates, and flow-fractions, all heats and works are calculated. The thermal efficiency is then automatically calculated using EES:
 
-\begin{figure}[t]
+\begin{equation}
+\eta_{th} = W_{net} / Q_{in}
+\label{Thermal Efficiency}
+\end{equation}
+
+The optimized state variables are shown in Table 1. State entropies and enthalpies can be calculated using the reference of choice (the EES model utilized the default option).
+
+The methodology chosen created reasonable values for thermal efficiency and mass-flow fractions. However, the flow ratio between the ORC and the main loop was almost 15 [-]. This seems quite high--this point could serve as a starting point for further research.
+
+Through the process of creating the model, the importance of employing assertions was quickly realized. If one of the model's relations is missing, then it creates a degree of freedom for the model that should not exist. This issue can be hidden by applying additional inputs in order to get a solution. However, if the Conservation of Mass, First Law, or Second Law is not obeyed at a device, the entire analysis is inaccurate. Therefore, the assertions established in the methodology are crucial to determining whether important relations were missing from the model.
+
+Additionally, once the known-goods are put into the model, the efficiency starts close to the maximum. Only about a 2 percent difference in thermal efficiency exists between most favorable and unfavorable permutations of the input pressures. The presence of an analytical solution (non-iterative) for the last four inputs seems unlikely though, given the unpredictability of the maxima that appear during the parameter sweeping step.
+
+Interestingly, the model maximizes efficiency with a near-zero pressure drop between the C.F.H. and reheat processes, meaning that the HP 2 turbine creates nearly zero work. Understanding why these pressures tend to be equal at max efficiency could be a goal for future analysis.
+
+\begin{table}[t]
+\caption{State variables}
 \begin{center}
-\setlength{\unitlength}{0.012500in}%
-\begin{picture}(115,35)(255,545)
-\thicklines
-\put(255,545){\framebox(115,35){}}
-\put(275,560){Table of States}
-\end{picture}
+\label{table_ASME}
+\begin{tabular}{c c c c }
+& & & \\ % put some space after the caption
+\hline
+State [-] & Pressure [kPa] & Temperature [C] & Quality [-] \\
+\hline
+1 & 35 & 72.68 & 0 \\
+2 & 340 & 72.75 & -100 \\
+3 & 1500 & 198.3 & 0 \\
+4 & 340 & 137.8 & 0.123 \\
+5 & 340 & 137.8 & 0 \\
+6 & 25000 & 144.4 & -100 \\
+7 & 25000 & 183.3 & -100 \\
+8 & 25000 & 600 & 100 \\
+9 & 1500 & 225.6 & 100 \\
+10 & 1500 & 225.6 & 100 \\
+11 & 1500 & 600 & 100 \\
+12 & 340 & 394.1 & 100 \\
+13 & 35 & 160.5 & 100 \\
+\hline
+14 & 1017 & 40 & 0 \\
+15 & 1592 & 40.63 & -100 \\
+16 & 1592 & 57.68 & 1 \\
+17 & 1017 & 40 & 0.9939 \\
+\hline
+\end{tabular}
 \end{center}
-\caption{Table of States}
-\label{figure_ASME} 
-\end{figure}
+\end{table}
+
+\begin{table}[t]
+\caption{Final model outputs}
+\begin{center}
+\label{table_ASME}
+\begin{tabular}{c c c c}
+& & & \\ % put some space after the caption
+\hline
+$\eta_{th} [-]$ & $y [-]$ & $z [-]$ & $\frac{m_{hex}}{m_{main}} [-]$ \\
+\hline
+0.423 & 0.082 & 0.078 & 14.8 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \begin{figure}[t]
 \begin{center}
@@ -310,7 +373,7 @@ The first two parameters are optimized in tandem while the latter two are set to
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 
-Following the methodology prescribed leads to a thermal efficiency of $\eta_{th} = 0.423 [-]$, a C.F.H. flow fraction of $y = 0.082 [-]$, and a O.F.H. flow fraction of $z = 0.078 [-]$. Under these specifications, the ORC runs with 14.8 times the mass-flow of the main cycle. The following four input pressures are:
+Following the methodology prescribed leads to a maximum thermal efficiency of $\eta_{th} = 0.423 [-]$, a turbine-to-C.F.H. flow fraction of $y = 0.082 [-]$, and a turbine-to-O.F.H. flow fraction of $z = 0.078 [-]$. Under these specifications, the ORC runs with 14.8 times the mass-flow of the main cycle. The following four input pressures are:
 
 \begin{enumerate}
 \item
@@ -323,10 +386,10 @@ Pressure of the O.F.H: 340 [kPa]
 Pressure at HEX (water-side): 35 [kPa]
 \end{enumerate}
 
-Based on the constraints, assumptions, and known-goods established in the model, efficiency is maximized at about a zero pressure-drop between the C.F.H. and the reheat. Therefore, an optimized Rankine cycle of the assigned structure requires no second high pressure turbine. Removing the device would likely decrease the implementation/maintenance costs and remove a point of failure from the cycle. Moving forward, further consideration should likely be taken into maximum allowable mass-flow rates, in order to determine whether the ORC flow speed predicted my the model is truly reasonable. Additionally, a cost analysis could be performed to weigh the cost of additional devices against the gains of additional efficiency.
+Based on the constraints, assumptions, and known-goods established in the model, efficiency is maximized at about a zero pressure-drop between the C.F.H. and the reheat process. Therefore, an optimized Rankine cycle of the assigned structure requires no second high pressure turbine. Removing the device would likely decrease the implementation/maintenance costs of the cylce and remove a point of failure. Moving forward, further consideration should likely be taken into the maximum allowable mass-flow rates, in order to determine whether the ORC flow speed predicted by the model is truly reasonable. Additionally, a higher-level analysis could be performed to weigh the predicted costs of adding additional devices against the gains of additional efficiency to find an optimal schematic for the cycle.
 
 \begin{acknowledgment}
-Special thanks go to Tyler Zinn and Josh Myers for their help in troubleshooting our thermodynamic model, discussing useful source material, and revealing various EES features to us.
+Special thanks goes to Tyler Zinn for his help in troubleshooting our thermodynamic model, discussing useful source material, and revealing various EES features to us.
 \end{acknowledgment}
 
 
